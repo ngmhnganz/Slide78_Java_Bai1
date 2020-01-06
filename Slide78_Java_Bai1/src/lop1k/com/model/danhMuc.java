@@ -25,7 +25,7 @@ public class danhMuc extends sanPham {
 	}
 	@Override
 	public String toString() {
-		return "danhMuc [ma=" + ma + ", ten=" + ten + "]";
+		return "Mã" + ma + " - Mục: " + ten;
 	}
 	@Override
 	public String getXuatXu() {

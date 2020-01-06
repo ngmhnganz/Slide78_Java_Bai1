@@ -135,7 +135,7 @@ public class testSlide8_Bai1 {
 	public static void main(String[] args) {
 		do {
 			Menu();
-			System.out.println("Tiếp tục không? (c/k): ");
+			System.out.println("Bạn muốn quay trở về menu không? (c/k): ");
 			String kq = new java.util.Scanner(System.in).nextLine();
 			if (kq.equalsIgnoreCase("k"))
 				break;
