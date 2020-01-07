@@ -113,7 +113,7 @@ public class testSlide8_Bai1 {
 		int pickSanPham = new Scanner(System.in).nextInt();
 		System.out.println("Bạn đã chọn sản phẩm "+quanLiDonHang.get(pickDanhMuc-1).getSanpham().get(pickSanPham));
 		System.out.println("Cập nhật thông tin:");
-		quanLiDonHang.get(pickDanhMuc-1).getSanpham().add(pickSanPham, newSanPham());;
+		quanLiDonHang.get(pickDanhMuc-1).getSanpham().set(pickSanPham, newSanPham());;
 		}
 	private static void timSanPham() {
 		System.out.println("Đây là các danh mục sản phẩm.");
@@ -142,7 +142,7 @@ public class testSlide8_Bai1 {
 				break;
 		} while (true);
 		thongTin.setDanhmuc(danhMuc); thongTin.setSanpham(dsSanPham);
-		quanLiDonHang.add(pick-1, thongTin);
+		quanLiDonHang.set(pick-1, thongTin);
 		System.out.println("Đã thêm.");
 	}
 	private static void themDanhMuc() {
