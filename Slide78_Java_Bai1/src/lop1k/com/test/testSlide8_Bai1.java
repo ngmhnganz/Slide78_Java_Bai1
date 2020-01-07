@@ -12,7 +12,7 @@ public class testSlide8_Bai1 {
 	private static void Menu() {
 		System.out.println("1. Thêm danh mục.");
 		System.out.println("2. Thêm sản phẩm cho danh mục có sẵn.");
-		System.out.println("3. Tìm thông tin sản phẩm.");
+		System.out.println("3. Xuất danh sách sản phẩm từ một danh mục.");
 		System.out.println("4. Cập nhật thông tin sản phẩm.");
 		System.out.println("5. Xóa thông tin sản phẩm.");
 		System.out.println("6. Thống kê tổng giá trị của các mặt hàng.");
@@ -42,32 +42,79 @@ public class testSlide8_Bai1 {
 			break;
 	}
 	}
+	private static sanPham newSanPham() {
+		sanPham sanPham = new sanPham();
+		System.out.println("Nhập tên sản phẩm: ");
+		String s= new Scanner(System.in).nextLine();
+		sanPham.setTen(s);
+		System.out.println("Nhập mã sản phẩm: ");
+		s= new Scanner(System.in).nextLine();
+		sanPham.setMa(s);
+		System.out.println("Nhập xuất xứ sản phẩm: ");
+		s = new Scanner(System.in).nextLine();
+		sanPham.setXuatXu(s);
+		System.out.println("Nhập đơn giá: ");
+		double gia = new Scanner(System.in).nextDouble();
+		sanPham.setGia(gia);
+		return (sanPham);
+	}
+	private static void xuatDanhMucSanPham() {
+		int i;
+		for (i =0;i<quanLiDonHang.size();i++) {
+			System.out.println((i+1)+".\t"+quanLiDonHang.get(i).getDanhmuc());
+		}
+	}
+	private static void xuatSanPham(int pickDanhMuc) {
+		int i;
+		for (i=0; i<quanLiDonHang.get(pickDanhMuc-1).getSanpham().size();i++) {
+			System.out.println((i+1)+".\t"+quanLiDonHang.get(pickDanhMuc-1).getSanpham().get(i));
+		}
+	}
 	private static void lietKe() {
 		
 	}
 	private static void thongKeGiaTri() {
-		// TODO Auto-generated method stub
 		
 	}
 	private static void xoaSanPham() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Đây là các danh mục sản phẩm.");
+		xuatDanhMucSanPham();
+		System.out.println("Nhập thứ tự danh mục bạn muốn chọn: ");
+		int pickDanhMuc = new Scanner(System.in).nextInt();
+		System.out.println("Danh sách sản phẩm: ");
+		xuatSanPham(pickDanhMuc);
+		System.out.println("Nhập thứ tự sản phẩm bạn muốn chọn: ");
+		int pickSanPham = new Scanner(System.in).nextInt();
+		System.out.println("Bạn đã chọn sản phẩm "+quanLiDonHang.get(pickDanhMuc-1).getSanpham().get(pickSanPham));
+		quanLiDonHang.get(pickDanhMuc-1).getSanpham().remove(pickSanPham);
+		System.out.println("Đã xoá.");
 	}
 	private static void capNhatSanPham() {
-		// TODO Auto-generated method stub
+		System.out.println("Đây là các danh mục sản phẩm.");
+		xuatDanhMucSanPham();
+		System.out.println("Nhập thứ tự danh mục bạn muốn chọn: ");
+		int pickDanhMuc = new Scanner(System.in).nextInt();
+		System.out.println("Danh sách sản phẩm: ");
+		xuatSanPham(pickDanhMuc);
+		System.out.println("Nhập thứ tự sản phẩm bạn muốn chọn: ");
+		int pickSanPham = new Scanner(System.in).nextInt();
+		System.out.println("Bạn đã chọn sản phẩm "+quanLiDonHang.get(pickDanhMuc-1).getSanpham().get(pickSanPham));
+		System.out.println("Cập nhật thông tin:");
+		quanLiDonHang.get(pickDanhMuc-1).getSanpham().add(pickSanPham, newSanPham());;
+		}
 		
-	}
 	private static void timSanPham() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Đây là các danh mục sản phẩm.");
+		xuatDanhMucSanPham();
+		System.out.println("Nhập thứ tự danh mục bạn muốn chọn: ");
+		int pick = new Scanner(System.in).nextInt();
+		xuatSanPham(pick);
 	}
 	private static void themSanPham() {
 		ArrayList<sanPham> dsSanPham = new ArrayList<sanPham>();
 		thongTin thongTin = new thongTin();
 		System.out.println("Đây là các danh mục sản phẩm. Chọn danh mục bạn muốn thêm vào.");
-		for (int i =0;i<quanLiDonHang.size();i++) {
-			System.out.println((i+1)+".\t"+quanLiDonHang.get(i).getDanhmuc());
-		}
+		xuatDanhMucSanPham();
 		System.out.println("Nhập thứ tự danh mục bạn muốn chọn: ");
 		int pick = new Scanner(System.in).nextInt();
 		danhMuc danhMuc = new danhMuc();
@@ -75,18 +122,7 @@ public class testSlide8_Bai1 {
 		dsSanPham= quanLiDonHang.get(pick-1).getSanpham();
 		do {
 			sanPham sanPham = new sanPham();
-			System.out.println("Nhập tên sản phẩm: ");
-			String s= new Scanner(System.in).nextLine();
-			sanPham.setTen(s);
-			System.out.println("Nhập mã sản phẩm: ");
-			s= new Scanner(System.in).nextLine();
-			sanPham.setMa(s);
-			System.out.println("Nhập xuất xứ sản phẩm: ");
-			s = new Scanner(System.in).nextLine();
-			sanPham.setXuatXu(s);
-			System.out.println("Nhập đơn giá: ");
-			double gia = new Scanner(System.in).nextDouble();
-			sanPham.setGia(gia);
+			sanPham = newSanPham();
 			dsSanPham.add(sanPham);
 			System.out.println("Tiếp tục thêm sản phẩm (c/k): ");
 			String kq = new java.util.Scanner(System.in).nextLine();
@@ -111,18 +147,7 @@ public class testSlide8_Bai1 {
 		ArrayList<sanPham> dsSanPham = new ArrayList<sanPham>();
 		do {
 			sanPham sanPham = new sanPham();
-			System.out.println("Nhập tên sản phẩm: ");
-			s= new Scanner(System.in).nextLine();
-			sanPham.setTen(s);
-			System.out.println("Nhập mã sản phẩm: ");
-			s= new Scanner(System.in).nextLine();
-			sanPham.setMa(s);
-			System.out.println("Nhập xuất xứ sản phẩm: ");
-			s = new Scanner(System.in).nextLine();
-			sanPham.setXuatXu(s);
-			System.out.println("Nhập đơn giá: ");
-			double gia = new Scanner(System.in).nextDouble();
-			sanPham.setGia(gia);
+			sanPham = newSanPham();
 			dsSanPham.add(sanPham);
 			System.out.println("Tiếp tục thêm sản phẩm (c/k): ");
 			String kq = new java.util.Scanner(System.in).nextLine();
