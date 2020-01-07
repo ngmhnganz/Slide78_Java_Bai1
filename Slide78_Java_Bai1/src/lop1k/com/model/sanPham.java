@@ -31,7 +31,7 @@ public class sanPham {
 	}
 	@Override
 	public String toString() {
-		return "sanPham [ten=" + ten + ", ma=" + ma + ", xuatXu=" + xuatXu + ", gia=" + gia + "]";
+		return "Sản phẩm " + ten + ", mã =" + ma + ", xuất xứ =" + xuatXu + ", đơn giá =" + gia;
 	}
 	public sanPham(String ten, String ma, String xuatXu, double gia) {
 		super();

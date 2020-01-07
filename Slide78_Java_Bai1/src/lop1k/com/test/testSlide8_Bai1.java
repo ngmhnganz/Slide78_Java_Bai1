@@ -71,10 +71,23 @@ public class testSlide8_Bai1 {
 		}
 	}
 	private static void lietKe() {
-		
+		System.out.println("Các sản phẩm có xuất xứ Trung Quốc: ");
+		int i;
+		for (i =0;i<quanLiDonHang.size();i++) {
+			for (int j=0;j<quanLiDonHang.get(i).getSanpham().size();j++) {
+				if( quanLiDonHang.get(i).getSanpham().get(j).getXuatXu().contentEquals("Trung Quốc")) System.out.println(quanLiDonHang.get(i).getSanpham().get(j));
+			}
+		}
 	}
 	private static void thongKeGiaTri() {
-		
+		int i;
+		double tongGiaTri=0;
+		for (i =0;i<quanLiDonHang.size();i++) {
+			for (int j=0;j<quanLiDonHang.get(i).getSanpham().size();j++) {
+				tongGiaTri =tongGiaTri+ quanLiDonHang.get(i).getSanpham().get(j).getGia();
+			}
+		}
+		System.out.println("Tổng giá trị các mặt hàng: "+ tongGiaTri);
 	}
 	private static void xoaSanPham() {
 		System.out.println("Đây là các danh mục sản phẩm.");
@@ -102,7 +115,6 @@ public class testSlide8_Bai1 {
 		System.out.println("Cập nhật thông tin:");
 		quanLiDonHang.get(pickDanhMuc-1).getSanpham().add(pickSanPham, newSanPham());;
 		}
-		
 	private static void timSanPham() {
 		System.out.println("Đây là các danh mục sản phẩm.");
 		xuatDanhMucSanPham();
