@@ -98,8 +98,8 @@ public class testSlide8_Bai1 {
 		xuatSanPham(pickDanhMuc);
 		System.out.println("Nhập thứ tự sản phẩm bạn muốn chọn: ");
 		int pickSanPham = new Scanner(System.in).nextInt();
-		System.out.println("Bạn đã chọn sản phẩm "+quanLiDonHang.get(pickDanhMuc-1).getSanpham().get(pickSanPham));
-		quanLiDonHang.get(pickDanhMuc-1).getSanpham().remove(pickSanPham);
+		System.out.println("Bạn đã chọn sản phẩm "+quanLiDonHang.get(pickDanhMuc-1).getSanpham().get(pickSanPham-1));
+		quanLiDonHang.get(pickDanhMuc-1).getSanpham().remove(pickSanPham-1);
 		System.out.println("Đã xoá.");
 	}
 	private static void capNhatSanPham() {
@@ -111,9 +111,9 @@ public class testSlide8_Bai1 {
 		xuatSanPham(pickDanhMuc);
 		System.out.println("Nhập thứ tự sản phẩm bạn muốn chọn: ");
 		int pickSanPham = new Scanner(System.in).nextInt();
-		System.out.println("Bạn đã chọn sản phẩm "+quanLiDonHang.get(pickDanhMuc-1).getSanpham().get(pickSanPham));
+		System.out.println("Bạn đã chọn sản phẩm "+quanLiDonHang.get(pickDanhMuc-1).getSanpham().get(pickSanPham-1));
 		System.out.println("Cập nhật thông tin:");
-		quanLiDonHang.get(pickDanhMuc-1).getSanpham().set(pickSanPham, newSanPham());;
+		quanLiDonHang.get(pickDanhMuc-1).getSanpham().set(pickSanPham-1, newSanPham());;
 		}
 	private static void timSanPham() {
 		System.out.println("Đây là các danh mục sản phẩm.");
